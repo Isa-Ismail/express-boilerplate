@@ -12,7 +12,7 @@ app.use(express.json())
 app.use(express.static('public'))
 
 const db = mysql.createConnection ({
-    host:"192.168.31.138",
+    host:"localhost",
     user:"root",
     port:3301,
     password:"doggo",
@@ -21,21 +21,26 @@ const db = mysql.createConnection ({
 
 db.connect((err, res) => {
     if(err){
-        console.log(err)
-    }else{
-        console.log('database interpreted')
-    }
+         console.log(err)
+     }else{
+         console.log('success')
+     }
 })
 
-const myTimer = () => {
-  const d = new Date();
-  const t = d.toLocaleTimeString();
-  console.log(t)
-}
-const myDate = setInterval(myTimer, 1000);
+app.get('/',(req, res) => {
+    res.send('hello world')
+})
 
-setTimeout(()=>{
-    clearInterval(myDate)
-},5000)
+console.log(new Date().toLocaleTimeString())
+// const myTimer = () => {
+//   const d = new Date();
+//   const t = d.toLocaleTimeString();
+//   console.log(t)
+// }
+// const myDate = setInterval(myTimer, 1000);
+
+// setTimeout(()=>{
+//     clearInterval(myDate)
+// },5000)
 
 app.listen(port, () => console.log(`Server is running at port ${port}`))
