@@ -32,6 +32,7 @@ app.get('/',(req, res) => {
 })
 
 console.log(new Date().toLocaleTimeString())
+
 // const myTimer = () => {
 //   const d = new Date();
 //   const t = d.toLocaleTimeString();
