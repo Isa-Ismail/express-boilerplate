@@ -34,12 +34,11 @@ app.get('/',(req, res) => {
         if(!err){
             data = result
             console.log(result)
+            res.send(JSON.stringify(data))
         }else{
             console.log(err)
         }
     })
-
-    res.send(JSON.stringify(data))
 })
 
 console.log(new Date().toLocaleTimeString())
