@@ -27,8 +27,19 @@ db.connect((err, res) => {
      }
 })
 
+let data 
+
 app.get('/',(req, res) => {
-    res.send('hello world')
+    db.query('select * from football_clubs', (err, result) => {
+        if(!err){
+            data = result
+            console.log(result)
+        }else{
+            console.log(err)
+        }
+    })
+
+    res.send(JSON.stringify(data))
 })
 
 console.log(new Date().toLocaleTimeString())
