@@ -1,9 +1,12 @@
 const express = require('express');
+const dotenv = require('dotenv');
 const mysql = require('mysql')
 const cors = require('cors');
 
 const app = express()
 const port = process.env.PORT || 4000;
+
+dotenv.config({path: './config/config.env'})
 
 app.use(cors())
 
@@ -54,4 +57,4 @@ console.log(new Date().toLocaleTimeString())
 //     clearInterval(myDate)
 // },5000)
 
-app.listen(port, () => console.log(`Server is running at port ${port}`))
+app.listen(port, () => console.log(`Server is running at port ${port} in ${process.env.NODE_ENV}`))
