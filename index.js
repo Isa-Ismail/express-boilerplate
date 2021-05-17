@@ -37,7 +37,7 @@ app.get('/',(req, res) => {
         if(!err){
             data = result
             console.log(result)
-            res.send(JSON.stringify(data))
+            res.json(data)
         }else{
             console.log(err)
         }
