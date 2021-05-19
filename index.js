@@ -2,11 +2,16 @@ const express = require('express');
 const dotenv = require('dotenv');
 const mysql = require('mysql')
 const cors = require('cors');
+const wiki = require('./routes/route')
 
 const app = express()
+
 dotenv.config({path: './config/config.env'})
 
 const port = process.env.PORT || 4000;
+
+//Mounting routes
+app.use('/v1', wiki)
 
 app.use(cors())
 
